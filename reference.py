@@ -90,6 +90,7 @@ bool([2])
 10 / 4          # true division (returns 2.5)
 10 // 4         # floor division (returns 2)
 5 % 4           # modulo (returns 1) - also known as the remainder
+a @ b           # matrix multiplication
 
 
 
