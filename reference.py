@@ -1,9 +1,8 @@
 '''
-Python 2.7 Quick Reference
-https://github.com/justmarkham/python-reference
+Python 3.5 Quick Reference
+https://github.com/rmarquis/python-reference
 
-By Kevin Markham (kevin@dataschool.io)
-http://dataschool.io
+Based on the Python 2.7 Quick Reference by Kevin Markham (kevin@dataschool.io)
 
 Table of Contents:
     Imports
@@ -88,14 +87,10 @@ bool([2])
 10 - 4          # subtract (returns 6)
 10 * 4          # multiply (returns 40)
 10 ** 4         # exponent (returns 10000)
-10 / 4          # divide (returns 2 because both types are 'int')
-10 / float(4)   # divide (returns 2.5)
-5 % 4           # modulo (returns 1) - also known as the remainder
-
-# force '/' in Python 2.x to perform 'true division' (unnecessary in Python 3.x)
-from __future__ import division
 10 / 4          # true division (returns 2.5)
 10 // 4         # floor division (returns 2)
+5 % 4           # modulo (returns 1) - also known as the remainder
+
 
 
 
@@ -119,24 +114,24 @@ False or not False and True     # evaluation order: not, and, or
 
 # if statement
 if x > 0:
-    print 'positive'
+    print('positive')
 
 # if/else statement
 if x > 0:
-    print 'positive'
+    print('positive')
 else:
-    print 'zero or negative'
+    print('zero or negative')
 
 # if/elif/else statement
 if x > 0:
-    print 'positive'
+    print('positive')
 elif x == 0:
-    print 'zero'
+    print('zero')
 else:
-    print 'negative'
+    print('negative')
 
 # single-line if statement (sometimes discouraged)
-if x > 0: print 'positive'
+if x > 0: print('positive')
 
 # single-line if/else statement (sometimes discouraged)
 # known as a 'ternary operator'
@@ -311,8 +306,8 @@ s5.strip()          # returns 'ham and cheese'
 'pi is {:.2f}'.format(3.14159)      # returns 'pi is 3.14'
 
 # normal strings versus raw strings
-print 'first line\nsecond line'     # normal strings allow for escaped characters
-print r'first line\nfirst line'     # raw strings treat backslashes as literal characters
+print('first line\nsecond line')     # normal strings allow for escaped characters
+print(r'first line\nfirst line')     # raw strings treat backslashes as literal characters
 
 
 
@@ -409,14 +404,14 @@ sorted(set([9, 0, 2, 1, 0]))    # returns [0, 1, 2, 9]
 
 # define a function with no arguments and no return values
 def print_text():
-    print 'this is text'
+    print('this is text')
 
 # call the function
 print_text()
 
 # define a function with one argument and no return values
 def print_this(x):
-    print x
+    print(x)
 
 # call the function
 print_this(3)       # prints 3
@@ -444,7 +439,7 @@ def calc(a, b, op='add'):
     elif op == 'sub':
         return a - b
     else:
-        print 'valid operations are add and sub'
+        print('valid operations are add and sub')
 
 # call the function
 calc(10, 4, op='add')   # returns 14
@@ -501,38 +496,38 @@ range(0, 5, 2)  # returns [0, 2, 4]: third argument specifies the 'stride'
 # for loop (not recommended)
 fruits = ['apple', 'banana', 'cherry']
 for i in range(len(fruits)):
-    print fruits[i].upper()
+    print(fruits[i].upper())
 
 # alternative for loop (recommended style)
 for fruit in fruits:
-    print fruit.upper()
+    print(fruit.upper())
 
-# use xrange when iterating over a large sequence to avoid actually creating the integer list in memory
-for i in xrange(10**6):
+# use range when iterating over a large sequence to avoid actually creating the integer list in memory
+for i in range(10**6):
     pass
 
 # iterate through two things at once (using tuple unpacking)
 family = {'dad':'homer', 'mom':'marge', 'size':6}
 for key, value in family.items():
-    print key, value
+    print(key, value)
 
 # use enumerate if you need to access the index value within the loop
 for index, fruit in enumerate(fruits):
-    print index, fruit
+    print(index, fruit)
 
 # for/else loop
 for fruit in fruits:
     if fruit == 'banana':
-        print "Found the banana!"
+        print("Found the banana!")
         break   # exit the loop and skip the 'else' block
 else:
     # this block executes ONLY if the for loop completes without hitting 'break'
-    print "Can't find the banana"
+    print("Can't find the banana")
 
 # while loop
 count = 0
 while count < 5:
-    print "This will print 5 times"
+    print("This will print 5 times")
     count += 1      # equivalent to 'count = count + 1'
 
 
@@ -591,7 +586,7 @@ fruit_indices = {fruit:index for index, fruit in enumerate(fruits)} # {'apple': 
 
 
 
-### MAP, REDUCE, FILTER ###
+### MAP, FILTER ###
 
 # 'map' applies a function to every element of a sequence and returns a list
 simpsons = ['homer', 'marge', 'bart']
@@ -601,10 +596,6 @@ map(lambda word: word[-1], simpsons)    # returns ['r', 'e', 't']
 # equivalent list comprehensions
 [len(word) for word in simpsons]
 [word[-1] for word in simpsons]
-
-# 'reduce' applies a binary function to the first two elements of a sequence,
-# then repeats with the result and the next element, through the end of the sequence
-reduce(lambda x, y: x + y, range(4))    # (((0+1)+2)+3) = 6
 
 # 'filter' returns a sequence containing the items from the original sequence
 # for which the condition is True

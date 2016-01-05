@@ -1,4 +1,6 @@
-## Python 2.7 Quick Reference
+## Python 3.5 Quick Reference
+
+Based on the [Python 2.7 Quick Reference](https://github.com/justmarkham/python-reference) from [Kevin Markham](https://github.com/justmarkham).
 
 This is the [reference guide to Python](reference.py) that I **wish** had existed when I was learning the language.
 
@@ -27,7 +29,7 @@ This is **not** written as a full-fledged Python tutorial, though I ordered the 
 - [Anonymous (Lambda) Functions](reference.py#L473)
 - [For Loops and While Loops](reference.py#L494)
 - [Comprehensions](reference.py#L540)
-- [Map, Reduce, Filter](reference.py#L594)
+- [Map, Filter](reference.py#L594)
 
 ### Other Python Resources
 
