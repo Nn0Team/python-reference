@@ -4,6 +4,7 @@ https://github.com/rmarquis/python-reference
 
 Based on the Python 2.7 Quick Reference by Kevin Markham (kevin@dataschool.io)
 
+
 Table of Contents:
     Imports
     Data Types
