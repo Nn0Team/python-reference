@@ -361,6 +361,10 @@ family['kids'].remove('lisa')       # removes 'lisa'
 # string substitution using a dictionary
 'youngest child is %(baby)s' % family   # returns 'youngest child is maggie'
 
+# iteration over dictionary
+for key, value in {'1': 1, '2': 2}.items():     # remember that items are unordered
+    print(key, value)
+
 
 
 ### SETS ###
