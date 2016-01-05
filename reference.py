@@ -299,6 +299,7 @@ s5.strip()          # returns 'ham and cheese'
 # string substitutions: all of these return 'raining cats and dogs'
 'raining %s and %s' % ('cats','dogs')                       # old way
 'raining {} and {}'.format('cats','dogs')                   # new way
+'raining {1} and {0}'.format('dogs', 'cat')                 # positioned arguments
 'raining {arg1} and {arg2}'.format(arg1='cats',arg2='dogs') # named arguments
 
 # string formatting
