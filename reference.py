@@ -19,7 +19,7 @@ Table of Contents:
     Anonymous (Lambda) Functions
     For Loops and While Loops
     Comprehensions
-    Map, Reduce, Filter
+    Map, Filter, Zip
 '''
 
 
@@ -590,12 +590,12 @@ fruit_indices = {fruit:index for index, fruit in enumerate(fruits)} # {'apple': 
 
 
 
-### MAP, FILTER ###
+### MAP, FILTER, ZIP ###
 
-# 'map' applies a function to every element of a sequence and returns a list
+# 'map' applies a function to every element of a sequence and returns an iterator
 simpsons = ['homer', 'marge', 'bart']
-map(len, simpsons)                      # returns [5, 5, 4]
-map(lambda word: word[-1], simpsons)    # returns ['r', 'e', 't']
+list(map(len, simpsons))                      # returns [5, 5, 4]
+list(map(lambda word: word[-1], simpsons))    # returns ['r', 'e', 't']
 
 # equivalent list comprehensions
 [len(word) for word in simpsons]
@@ -603,4 +603,7 @@ map(lambda word: word[-1], simpsons)    # returns ['r', 'e', 't']
 
 # 'filter' returns a sequence containing the items from the original sequence
 # for which the condition is True
-filter(lambda x: x % 2 == 0, range(5))  # returns [0, 2, 4]
+list(filter(lambda x: x % 2 == 0, range(5)))  # returns [0, 2, 4]
+
+# 'zip' aggregates elements from each of the iterables
+list(zip([1, 2, 3], [4, 5, 6]))               # returns [(1, 4), (2, 5), (3, 6)]

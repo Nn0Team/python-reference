@@ -29,7 +29,7 @@ This is **not** written as a full-fledged Python tutorial, though I ordered the 
 - [Anonymous (Lambda) Functions](reference.py#L473)
 - [For Loops and While Loops](reference.py#L494)
 - [Comprehensions](reference.py#L540)
-- [Map, Filter](reference.py#L594)
+- [Map, Filter, Zip](reference.py#L594)
 
 ### Other Python Resources
 
