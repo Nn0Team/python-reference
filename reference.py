@@ -316,6 +316,7 @@ print(r'first line\nfirst line')     # raw strings treat backslashes as literal 
 ## made up of key-value pairs
 ## keys must be unique, and can be strings, numbers, or tuples
 ## values can be any type
+## views provide dynamic view on the dictionary’s entries
 
 # create an empty dictionary (two ways)
 empty_dict = {}
@@ -332,9 +333,9 @@ family = dict(list_of_tuples)
 # examine a dictionary
 family['dad']       # returns 'homer'
 len(family)         # returns 3
-family.keys()       # returns list: ['dad', 'mom', 'size']
-family.values()     # returns list: ['homer', 'marge', 6]
-family.items()      # returns list of tuples:
+family.keys()       # returns view: ['dad', 'mom', 'size']
+family.values()     # returns view: ['homer', 'marge', 6]
+family.items()      # returns view of tuples:
                     #   [('dad', 'homer'), ('mom', 'marge'), ('size', 6)]
 'mom' in family     # returns True
 'marge' in family   # returns False (only checks keys)
