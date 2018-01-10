@@ -1,5 +1,5 @@
 '''
-Python 3.5 Quick Reference
+Python 3.6 Quick Reference
 https://github.com/rmarquis/python-reference
 
 Based on the Python 2.7 Quick Reference by Kevin Markham (kevin@dataschool.io)
@@ -39,10 +39,10 @@ sqrt(25)    # no longer have to reference the module
 from math import cos, floor
 
 # import all functions in a module (generally discouraged)
-from os import *
+from csv import *
 
 # define an alias
-import numpy as np
+import datetime as dt
 
 # show all functions in math module
 dir(math)
@@ -88,21 +88,23 @@ bool([2])
 10 - 4          # subtract (returns 6)
 10 * 4          # multiply (returns 40)
 10 ** 4         # exponent (returns 10000)
-10 / 4          # true division (returns 2.5)
+10 / 4          # divide (returns 2.5)
 10 // 4         # floor division (returns 2)
-5 % 4           # modulo (returns 1) - also known as the remainder
+5 % 4           # modulo (returns 1)
 a @ b           # matrix multiplication
-
 
 
 
 ### COMPARISONS AND BOOLEAN OPERATIONS ###
 
+# assignment statement
+x = 5
+
 # comparisons (these return True)
-5 > 3
-5 >= 3
-5 != 3
-5 == 5
+x > 3
+x >= 3
+x != 3
+x == 5
 
 # boolean operations (these return True)
 5 > 3 and 6 > 3
@@ -159,20 +161,20 @@ len(simpsons)   # returns the length (3)
 simpsons.append('lisa')                 # append element to end
 simpsons.extend(['itchy', 'scratchy'])  # append multiple elements to end
 simpsons.insert(0, 'maggie')            # insert element at index 0 (shifts everything right)
-simpsons.remove('bart')                 # searches for first instance and removes it
-simpsons.pop(0)                         # removes element 0 and returns it
-del simpsons[0]                         # removes element 0 (does not return it)
+simpsons.remove('bart')                 # search for first instance and remove it
+simpsons.pop(0)                         # remove element 0 and return it
+del simpsons[0]                         # remove element 0 (does not return it)
 simpsons[0] = 'krusty'                  # replace element 0
 
 # concatenate lists (slower than 'extend' method)
-neighbors = simpsons + ['ned','rod','todd']
+neighbors = simpsons + ['ned', 'rod', 'todd']
 
 # find elements in a list
-simpsons.count('lisa')      # counts the number of instances
-simpsons.index('itchy')     # returns index of first instance
+simpsons.count('lisa')      # count the number of instances
+simpsons.index('itchy')     # return index of first instance
 
-# list slicing [start:end:stride]
-weekdays = ['mon','tues','wed','thurs','fri']
+# list slicing [start:end:step]
+weekdays = ['mon', 'tues', 'wed', 'thurs', 'fri']
 weekdays[0]         # element 0
 weekdays[0:3]       # elements 0, 1, 2
 weekdays[:3]        # elements 0, 1, 2
@@ -189,7 +191,7 @@ simpsons.sort()
 simpsons.sort(reverse=True)     # sort in reverse
 simpsons.sort(key=len)          # sort by a key
 
-# return a sorted list (but does not modify the original list)
+# return a sorted list (does not modify the original list)
 sorted(simpsons)
 sorted(simpsons, reverse=True)
 sorted(simpsons, key=len)
@@ -201,15 +203,13 @@ insort(num, 30)
 
 # create a second reference to the same list
 same_num = num
-same_num[0] = 0         # modifies both 'num' and 'same_num'
+same_num[0] = 0         # modify both 'num' and 'same_num'
 
 # copy a list (two ways)
 new_num = num[:]
 new_num = list(num)
 
 # examine objects
-id(num) == id(same_num) # returns True
-id(num) == id(new_num)  # returns False
 num is same_num         # returns True
 num is new_num          # returns False
 num == same_num         # returns True
@@ -218,8 +218,8 @@ num == new_num          # returns True (their contents are equivalent)
 
 
 ### TUPLES ###
-## like lists, but they don't change size
 ## properties: ordered, iterable, immutable, can contain multiple data types
+## like lists, but they don't change size
 
 # create a tuple
 digits = (0, 1, 'two')          # create a tuple directly
@@ -276,33 +276,33 @@ s.endswith('you')   # returns True
 s.isdigit()         # returns False (returns True if every character in the string is a digit)
 s.find('like')      # returns index of first occurrence (2), but doesn't support regex
 s.find('hate')      # returns -1 since not found
-s.replace('like','love')    # replaces all instances of 'like' with 'love'
+s.replace('like', 'love')   # replaces all instances of 'like' with 'love'
 
 # split a string into a list of substrings separated by a delimiter
-s.split(' ')        # returns ['I','like','you']
-s.split()           # same thing
+s.split(' ')        # returns ['I', 'like', 'you']
+s.split()           # equivalent (since space is the default delimiter)
 s2 = 'a, an, the'
-s2.split(',')       # returns ['a',' an',' the']
+s2.split(',')       # returns ['a', ' an', ' the']
 
 # join a list of strings into one string using a delimiter
-stooges = ['larry','curly','moe']
+stooges = ['larry', 'curly', 'moe']
 ' '.join(stooges)   # returns 'larry curly moe'
 
 # concatenate strings
 s3 = 'The meaning of life is'
 s4 = '42'
 s3 + ' ' + s4       # returns 'The meaning of life is 42'
-s3 + ' ' + str(42)  # same thing
 
 # remove whitespace from start and end of a string
 s5 = '  ham and cheese  '
 s5.strip()          # returns 'ham and cheese'
 
 # string substitutions: all of these return 'raining cats and dogs'
-'raining %s and %s' % ('cats','dogs')                       # old way
-'raining {} and {}'.format('cats','dogs')                   # new way
-'raining {1} and {0}'.format('dogs', 'cat')                 # positioned arguments
-'raining {arg1} and {arg2}'.format(arg1='cats',arg2='dogs') # named arguments
+'raining %s and %s' % ('cats', 'dogs')                       # old way
+'raining {} and {}'.format('cats', 'dogs')                   # new way
+'raining {1} and {0}'.format('dogs', 'cat')                  # positioned arguments
+'raining {arg1} and {arg2}'.format(arg1='cats', arg2='dogs') # named arguments
+f"raining {cats} and {dogs}"                                 # formatted string literals
 
 # string formatting
 # more examples: http://mkaz.com/2012/10/10/python-string-format/
@@ -316,10 +316,9 @@ print(r'first line\nfirst line')     # raw strings treat backslashes as literal 
 
 ### DICTIONARIES ###
 ## properties: unordered, iterable, mutable, can contain multiple data types
-## made up of key-value pairs
+## made of key-value pairs
 ## keys must be unique, and can be strings, numbers, or tuples
 ## values can be any type
-## views provide dynamic view on the dictionary’s entries
 
 # create an empty dictionary (two ways)
 empty_dict = {}
@@ -330,51 +329,48 @@ family = {'dad':'homer', 'mom':'marge', 'size':6}
 family = dict(dad='homer', mom='marge', size=6)
 
 # convert a list of tuples into a dictionary
-list_of_tuples = [('dad','homer'), ('mom','marge'), ('size', 6)]
+list_of_tuples = [('dad', 'homer'), ('mom', 'marge'), ('size', 6)]
 family = dict(list_of_tuples)
 
 # examine a dictionary
 family['dad']       # returns 'homer'
 len(family)         # returns 3
-family.keys()       # returns view: ['dad', 'mom', 'size']
-family.values()     # returns view: ['homer', 'marge', 6]
-family.items()      # returns view of tuples:
-                    #   [('dad', 'homer'), ('mom', 'marge'), ('size', 6)]
 'mom' in family     # returns True
 'marge' in family   # returns False (only checks keys)
+
+# returns an iterable view
+family.keys()       # keys: ['dad', 'mom', 'size']
+family.values()     # values: ['homer', 'marge', 6]
+family.items()      # key-value pairs: [('dad', 'homer'), ('mom', 'marge'), ('size', 6)]
 
 # modify a dictionary (does not return the dictionary)
 family['cat'] = 'snowball'              # add a new entry
 family['cat'] = 'snowball ii'           # edit an existing entry
 del family['cat']                       # delete an entry
-family['kids'] = ['bart', 'lisa']       # value can be a list
-family.pop('dad')                       # removes an entry and returns the value ('homer')
+family['kids'] = ['bart', 'lisa']       # dictionary value can be a list
+family.pop('dad')                       # remove an entry and return the value ('homer')
 family.update({'baby':'maggie', 'grandpa':'abe'})   # add multiple entries
 
-# accessing values more safely with 'get'
+# access values more safely with 'get'
 family['mom']                       # returns 'marge'
-family.get('mom')                   # same thing
-family['grandma']                   # throws an error
-family.get('grandma')               # returns None
+family.get('mom')                   # equivalent
+family['grandma']                   # throws an error since the key does not exist
+family.get('grandma')               # returns None instead
 family.get('grandma', 'not found')  # returns 'not found' (the default)
 
-# accessing a list element within a dictionary
+# access a list element within a dictionary
 family['kids'][0]                   # returns 'bart'
 family['kids'].remove('lisa')       # removes 'lisa'
 
 # string substitution using a dictionary
 'youngest child is %(baby)s' % family   # returns 'youngest child is maggie'
 
-# iteration over dictionary
-for key, value in {'1': 1, '2': 2}.items():     # remember that items are unordered
-    print(key, value)
-
 
 
 ### SETS ###
-## like dictionaries, but with keys only (no values)
 ## properties: unordered, iterable, mutable, can contain multiple data types
-## made up of unique elements (strings, numbers, or tuples)
+## made of unique elements (strings, numbers, or tuples)
+## like dictionaries, but with keys only (no values)
 
 # create an empty set
 empty_set = set()
@@ -401,7 +397,7 @@ languages.remove('c')       # try to remove a non-existing element (throws an er
 languages.discard('c')      # removes an element if present, but ignored otherwise
 languages.pop()             # removes and returns an arbitrary element
 languages.clear()           # removes all elements
-languages.update('go', 'spark') # add multiple elements (can also pass a list or set)
+languages.update(['go', 'spark'])  # add multiple elements (can also pass a set)
 
 # get a sorted list of unique elements from a list
 sorted(set([9, 0, 2, 1, 0]))    # returns [0, 1, 2, 9]
@@ -496,7 +492,7 @@ sorted(simpsons, key=lambda word: word[-1])
 
 ### FOR LOOPS AND WHILE LOOPS ###
 
-# range returns a list of integers
+# range returns a sequence
 range(0, 3)     # returns [0, 1, 2]: includes first value but excludes second value
 range(3)        # same thing: starting at zero is the default
 range(0, 5, 2)  # returns [0, 2, 4]: third argument specifies the 'stride'
@@ -509,10 +505,6 @@ for i in range(len(fruits)):
 # alternative for loop (recommended style)
 for fruit in fruits:
     print(fruit.upper())
-
-# use range when iterating over a large sequence to avoid actually creating the integer list in memory
-for i in range(10**6):
-    pass
 
 # iterate through two things at once (using tuple unpacking)
 family = {'dad':'homer', 'mom':'marge', 'size':6}
@@ -536,7 +528,7 @@ else:
 count = 0
 while count < 5:
     print("This will print 5 times")
-    count += 1      # equivalent to 'count = count + 1'
+    count += 1    # equivalent to 'count = count + 1'
 
 
 
@@ -598,16 +590,20 @@ fruit_indices = {fruit:index for index, fruit in enumerate(fruits)} # {'apple': 
 
 # 'map' applies a function to every element of a sequence and returns an iterator
 simpsons = ['homer', 'marge', 'bart']
-list(map(len, simpsons))                      # returns [5, 5, 4]
-list(map(lambda word: word[-1], simpsons))    # returns ['r', 'e', 't']
+map(len, simpsons)                      # returns [5, 5, 4]
+map(lambda word: word[-1], simpsons)    # returns ['r', 'e', 't']
 
 # equivalent list comprehensions
 [len(word) for word in simpsons]
 [word[-1] for word in simpsons]
 
-# 'filter' returns a sequence containing the items from the original sequence
-# for which the condition is True
-list(filter(lambda x: x % 2 == 0, range(5)))  # returns [0, 2, 4]
+# 'filter' returns an iterator containing the elements from a sequence
+# ... for which a condition is True
+nums = range(5)
+filter(lambda x: x % 2 == 0, nums)  # returns [0, 2, 4]
+
+# equivalent list comprehension
+[num for num in nums if num % 2 == 0]
 
 # 'zip' aggregates elements from each of the iterables
-list(zip([1, 2, 3], [4, 5, 6]))               # returns [(1, 4), (2, 5), (3, 6)]
+zip([1, 2, 3], [4, 5, 6])           # returns [(1, 4), (2, 5), (3, 6)]

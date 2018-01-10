@@ -1,4 +1,4 @@
-## Python 3.5 Quick Reference
+## Python 3.6 Quick Reference
 
 Based on the [Python 2.7 Quick Reference](https://github.com/justmarkham/python-reference) from [Kevin Markham](https://github.com/justmarkham):
 
@@ -18,18 +18,18 @@ This is **not** written as a full-fledged Python tutorial, though topics are ord
 - [Imports](reference.py#L28)
 - [Data Types](reference.py#L52)
 - [Math](reference.py#L84)
-- [Comparisons and Boolean Operations](reference.py#L99)
-- [Conditional Statements](reference.py#L115)
-- [Lists](reference.py#L144)
+- [Comparisons and Boolean Operations](reference.py#L98)
+- [Conditional Statements](reference.py#L117)
+- [Lists](reference.py#L146)
 - [Tuples](reference.py#220)
 - [Strings](reference.py#L255)
 - [Dictionaries](reference.py#L317)
-- [Sets](reference.py#L374)
-- [Defining Functions](reference.py#L411)
-- [Anonymous (Lambda) Functions](reference.py#L476)
-- [For Loops and While Loops](reference.py#L497)
-- [Comprehensions](reference.py#L543)
-- [Map, Filter, Zip](reference.py#L597)
+- [Sets](reference.py#L370)
+- [Defining Functions](reference.py#L407)
+- [Anonymous (Lambda) Functions](reference.py#L472)
+- [For Loops and While Loops](reference.py#L493)
+- [Comprehensions](reference.py#L535)
+- [Map, Filter, Zip](reference.py#L589)
 
 ### Other Python Resources
 
