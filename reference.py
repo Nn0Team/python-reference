@@ -64,8 +64,10 @@ isinstance(2.0, (int, float))   # returns True
 
 # convert an object to a given type
 float(2)
-int(2.9)
+int(2.9)        # truncates value
 str(2.9)
+int('127')      # string-to-integer conversion, string assumed to be of base 10 by default
+int('7f' , 16)  # string-to-integer conversion, string specified of base 16
 
 # zero, None, and empty containers are converted to False
 bool(0)
