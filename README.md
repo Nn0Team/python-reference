@@ -39,6 +39,6 @@ If you are looking for a resource that will help you to **learn Python from scra
 
 ### Suggestions or Corrections
 
-If there's a **topic or example** you'd like me to add to this guide, or you notice a **mistake**, please [create a GitHub issue](../../issues) or contact me directly. For the [Python 2.7 Quick Reference](https://github.com/justmarkham/python-reference) version, please contact [Kevin Markham](http://www.dataschool.io/about/).
+If there's a **topic or example** you'd like me to add to this guide, or you notice a **mistake**, please [create a GitHub issue](../../issues) or contact me directly. For the original [Python Quick Reference](https://github.com/justmarkham/python-reference) version (Python 2 but also fully compatible with Python 3), please contact [Kevin Markham](http://www.dataschool.io/about/).
 
 Thank you!
